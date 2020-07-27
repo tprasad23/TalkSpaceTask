@@ -18,7 +18,7 @@ class DrawingListViewController: UIViewController {
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Bimbit")
+        tableView.register(UINib(nibName: "DrawingCell", bundle: nil), forCellReuseIdentifier: "DrawingCell")
     }
 }
 
@@ -29,9 +29,11 @@ extension DrawingListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Bimbit", for: indexPath) as UITableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DrawingCell", for: indexPath) as? DrawingCell else { fatalError("Could not dequeue cell") }
         let decodedDrawing = decodedDrawings[indexPath.row]
-        cell.textLabel?.text = "\(decodedDrawing.startTime) \(decodedDrawing.strokes.count)"
+        let drawingCellViewModel = DrawingCellViewModel()
+        drawingCellViewModel.drawing = decodedDrawing
+        cell.configure(viewModel: drawingCellViewModel)
         return cell
     }
 }

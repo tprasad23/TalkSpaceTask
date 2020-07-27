@@ -30,8 +30,11 @@ class DrawingViewModel {
     func saveDrawing() {
         if let drawing = drawing, let _ = drawing.startTime {
             markEndTime()
+            
+            
+            
             // Save Image to UserDefaults
-            print("Saving Drawing to UserDefaults")
+            print("***Saving Drawing to UserDefaults*** ")
             UserDefaults.standard.addToSavedDrawings(drawing: drawing)
             print("Stroke Count is \(drawing.strokes.count)")
         }

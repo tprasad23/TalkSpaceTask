@@ -10,6 +10,10 @@ import UIKit
 
 class DrawingCell: UITableViewCell {
 
+    @IBOutlet weak var thumbImageView: UIImageView!
+    @IBOutlet weak var startDateLabel: UILabel!
+    @IBOutlet weak var drawingTimeLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +25,8 @@ class DrawingCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func configure(viewModel: DrawingCellViewModel) {
+        startDateLabel.text = viewModel.startTimeText()
+        drawingTimeLabel.text = viewModel.drawingTimeText()
+    }
 }

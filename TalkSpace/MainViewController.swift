@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
         // If any drawings exist, present them, otherwise
         // present "No Drawings" Screen
         
-        let testingDrawing = true
+        let testingDrawing = false
         
         let decodedDrawings = UserDefaults.standard.fetchSavedDrawings()
         print("# of drawings is \(decodedDrawings.count)")
