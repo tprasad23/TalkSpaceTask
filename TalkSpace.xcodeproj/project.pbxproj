@@ -1,0 +1,707 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA2162E424CCB1E0000329BC /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2162E124CCB1E0000329BC /* DrawingViewController.swift */; };
+		AA2162E524CCB1E0000329BC /* DrawingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA2162E224CCB1E0000329BC /* DrawingViewController.xib */; };
+		AA2162E824CCB25D000329BC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2162E624CCB25D000329BC /* SettingsViewController.swift */; };
+		AA2162E924CCB25D000329BC /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA2162E724CCB25D000329BC /* SettingsViewController.xib */; };
+		AA2162EC24CCB32B000329BC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2162EA24CCB32B000329BC /* MainViewController.swift */; };
+		AA2162ED24CCB32B000329BC /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA2162EB24CCB32B000329BC /* MainViewController.xib */; };
+		AA2162F524CCBEBD000329BC /* DrawingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2162F324CCBEBD000329BC /* DrawingCell.swift */; };
+		AA2162F624CCBEBD000329BC /* DrawingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA2162F424CCBEBD000329BC /* DrawingCell.xib */; };
+		AA2162F924CCCCA7000329BC /* DrawingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2162F824CCCCA7000329BC /* DrawingCellViewModel.swift */; };
+		AA2162FB24CCCCC3000329BC /* DrawingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2162FA24CCCCC3000329BC /* DrawingViewModel.swift */; };
+		AA2162FE24CCF28B000329BC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2162FD24CCF28B000329BC /* Model.swift */; };
+		AA21630124CCF33F000329BC /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA21630024CCF33F000329BC /* DateExtensions.swift */; };
+		AA21630424CDC9B2000329BC /* NoDrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA21630224CDC9B2000329BC /* NoDrawingViewController.swift */; };
+		AA21630524CDC9B2000329BC /* NoDrawingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA21630324CDC9B2000329BC /* NoDrawingViewController.xib */; };
+		AA21630724CDF12D000329BC /* DrawPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA21630624CDF12D000329BC /* DrawPadView.swift */; };
+		AA21630924CE38EF000329BC /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA21630824CE38EF000329BC /* ColorExtensions.swift */; };
+		AA21630B24CF3A7F000329BC /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA21630A24CF3A7F000329BC /* UserDefaultsExtensions.swift */; };
+		AA21630E24CF448A000329BC /* DrawingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA21630C24CF448A000329BC /* DrawingListViewController.swift */; };
+		AA21630F24CF448A000329BC /* DrawingListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA21630D24CF448A000329BC /* DrawingListViewController.xib */; };
+		AA5F476724CCB123008A78E4 /* DrawingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5F476624CCB123008A78E4 /* DrawingManager.swift */; };
+		AA8005B924CA2B1B003704C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8005B824CA2B1B003704C8 /* AppDelegate.swift */; };
+		AA8005BB24CA2B1B003704C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8005BA24CA2B1B003704C8 /* SceneDelegate.swift */; };
+		AA8005C224CA2B1E003704C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8005C124CA2B1E003704C8 /* Assets.xcassets */; };
+		AA8005C524CA2B1E003704C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8005C324CA2B1E003704C8 /* LaunchScreen.storyboard */; };
+		AA8005D024CA2B1E003704C8 /* TalkSpaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8005CF24CA2B1E003704C8 /* TalkSpaceTests.swift */; };
+		AA8005DB24CA2B1E003704C8 /* TalkSpaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8005DA24CA2B1E003704C8 /* TalkSpaceUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA8005CC24CA2B1E003704C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8005AD24CA2B1B003704C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA8005B424CA2B1B003704C8;
+			remoteInfo = TalkSpace;
+		};
+		AA8005D724CA2B1E003704C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8005AD24CA2B1B003704C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA8005B424CA2B1B003704C8;
+			remoteInfo = TalkSpace;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AA2162E124CCB1E0000329BC /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawingViewController.swift; path = "View Controllers/DrawingViewController.swift"; sourceTree = "<group>"; };
+		AA2162E224CCB1E0000329BC /* DrawingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DrawingViewController.xib; path = "View Controllers/DrawingViewController.xib"; sourceTree = "<group>"; };
+		AA2162E624CCB25D000329BC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		AA2162E724CCB25D000329BC /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		AA2162EA24CCB32B000329BC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		AA2162EB24CCB32B000329BC /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		AA2162F324CCBEBD000329BC /* DrawingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCell.swift; sourceTree = "<group>"; };
+		AA2162F424CCBEBD000329BC /* DrawingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawingCell.xib; sourceTree = "<group>"; };
+		AA2162F824CCCCA7000329BC /* DrawingCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCellViewModel.swift; sourceTree = "<group>"; };
+		AA2162FA24CCCCC3000329BC /* DrawingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewModel.swift; sourceTree = "<group>"; };
+		AA2162FD24CCF28B000329BC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		AA21630024CCF33F000329BC /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		AA21630224CDC9B2000329BC /* NoDrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDrawingViewController.swift; sourceTree = "<group>"; };
+		AA21630324CDC9B2000329BC /* NoDrawingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoDrawingViewController.xib; sourceTree = "<group>"; };
+		AA21630624CDF12D000329BC /* DrawPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawPadView.swift; sourceTree = "<group>"; };
+		AA21630824CE38EF000329BC /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		AA21630A24CF3A7F000329BC /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
+		AA21630C24CF448A000329BC /* DrawingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingListViewController.swift; sourceTree = "<group>"; };
+		AA21630D24CF448A000329BC /* DrawingListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawingListViewController.xib; sourceTree = "<group>"; };
+		AA5F476624CCB123008A78E4 /* DrawingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingManager.swift; sourceTree = "<group>"; };
+		AA8005B524CA2B1B003704C8 /* TalkSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalkSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA8005B824CA2B1B003704C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AA8005BA24CA2B1B003704C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		AA8005C124CA2B1E003704C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA8005C424CA2B1E003704C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AA8005C624CA2B1E003704C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA8005CB24CA2B1E003704C8 /* TalkSpaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalkSpaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA8005CF24CA2B1E003704C8 /* TalkSpaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkSpaceTests.swift; sourceTree = "<group>"; };
+		AA8005D124CA2B1E003704C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA8005D624CA2B1E003704C8 /* TalkSpaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalkSpaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA8005DA24CA2B1E003704C8 /* TalkSpaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkSpaceUITests.swift; sourceTree = "<group>"; };
+		AA8005DC24CA2B1E003704C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA8005B224CA2B1B003704C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA8005C824CA2B1E003704C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA8005D324CA2B1E003704C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA2162DF24CCB1B4000329BC /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AA2162E124CCB1E0000329BC /* DrawingViewController.swift */,
+				AA2162E224CCB1E0000329BC /* DrawingViewController.xib */,
+				AA2162E624CCB25D000329BC /* SettingsViewController.swift */,
+				AA2162E724CCB25D000329BC /* SettingsViewController.xib */,
+				AA2162EA24CCB32B000329BC /* MainViewController.swift */,
+				AA2162EB24CCB32B000329BC /* MainViewController.xib */,
+				AA21630224CDC9B2000329BC /* NoDrawingViewController.swift */,
+				AA21630324CDC9B2000329BC /* NoDrawingViewController.xib */,
+				AA21630C24CF448A000329BC /* DrawingListViewController.swift */,
+				AA21630D24CF448A000329BC /* DrawingListViewController.xib */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		AA2162F224CCBE99000329BC /* Custom View */ = {
+			isa = PBXGroup;
+			children = (
+				AA2162F324CCBEBD000329BC /* DrawingCell.swift */,
+				AA2162F424CCBEBD000329BC /* DrawingCell.xib */,
+				AA21630624CDF12D000329BC /* DrawPadView.swift */,
+			);
+			name = "Custom View";
+			sourceTree = "<group>";
+		};
+		AA2162F724CCCC8A000329BC /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA2162F824CCCCA7000329BC /* DrawingCellViewModel.swift */,
+				AA2162FA24CCCCC3000329BC /* DrawingViewModel.swift */,
+			);
+			name = "View Models";
+			sourceTree = "<group>";
+		};
+		AA2162FC24CCF278000329BC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AA2162FD24CCF28B000329BC /* Model.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		AA2162FF24CCF331000329BC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AA21630024CCF33F000329BC /* DateExtensions.swift */,
+				AA21630A24CF3A7F000329BC /* UserDefaultsExtensions.swift */,
+				AA21630824CE38EF000329BC /* ColorExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		AA5F476524CCB10B008A78E4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				AA5F476624CCB123008A78E4 /* DrawingManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		AA8005AC24CA2B1B003704C8 = {
+			isa = PBXGroup;
+			children = (
+				AA8005B724CA2B1B003704C8 /* TalkSpace */,
+				AA8005CE24CA2B1E003704C8 /* TalkSpaceTests */,
+				AA8005D924CA2B1E003704C8 /* TalkSpaceUITests */,
+				AA8005B624CA2B1B003704C8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA8005B624CA2B1B003704C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA8005B524CA2B1B003704C8 /* TalkSpace.app */,
+				AA8005CB24CA2B1E003704C8 /* TalkSpaceTests.xctest */,
+				AA8005D624CA2B1E003704C8 /* TalkSpaceUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA8005B724CA2B1B003704C8 /* TalkSpace */ = {
+			isa = PBXGroup;
+			children = (
+				AA2162FF24CCF331000329BC /* Extensions */,
+				AA2162FC24CCF278000329BC /* Model */,
+				AA2162F724CCCC8A000329BC /* View Models */,
+				AA2162F224CCBE99000329BC /* Custom View */,
+				AA2162DF24CCB1B4000329BC /* View Controllers */,
+				AA8005B824CA2B1B003704C8 /* AppDelegate.swift */,
+				AA8005BA24CA2B1B003704C8 /* SceneDelegate.swift */,
+				AA8005C124CA2B1E003704C8 /* Assets.xcassets */,
+				AA8005C324CA2B1E003704C8 /* LaunchScreen.storyboard */,
+				AA8005C624CA2B1E003704C8 /* Info.plist */,
+				AA5F476524CCB10B008A78E4 /* Managers */,
+			);
+			path = TalkSpace;
+			sourceTree = "<group>";
+		};
+		AA8005CE24CA2B1E003704C8 /* TalkSpaceTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA8005CF24CA2B1E003704C8 /* TalkSpaceTests.swift */,
+				AA8005D124CA2B1E003704C8 /* Info.plist */,
+			);
+			path = TalkSpaceTests;
+			sourceTree = "<group>";
+		};
+		AA8005D924CA2B1E003704C8 /* TalkSpaceUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AA8005DA24CA2B1E003704C8 /* TalkSpaceUITests.swift */,
+				AA8005DC24CA2B1E003704C8 /* Info.plist */,
+			);
+			path = TalkSpaceUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA8005B424CA2B1B003704C8 /* TalkSpace */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA8005DF24CA2B1E003704C8 /* Build configuration list for PBXNativeTarget "TalkSpace" */;
+			buildPhases = (
+				AA8005B124CA2B1B003704C8 /* Sources */,
+				AA8005B224CA2B1B003704C8 /* Frameworks */,
+				AA8005B324CA2B1B003704C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TalkSpace;
+			productName = TalkSpace;
+			productReference = AA8005B524CA2B1B003704C8 /* TalkSpace.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA8005CA24CA2B1E003704C8 /* TalkSpaceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA8005E224CA2B1E003704C8 /* Build configuration list for PBXNativeTarget "TalkSpaceTests" */;
+			buildPhases = (
+				AA8005C724CA2B1E003704C8 /* Sources */,
+				AA8005C824CA2B1E003704C8 /* Frameworks */,
+				AA8005C924CA2B1E003704C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA8005CD24CA2B1E003704C8 /* PBXTargetDependency */,
+			);
+			name = TalkSpaceTests;
+			productName = TalkSpaceTests;
+			productReference = AA8005CB24CA2B1E003704C8 /* TalkSpaceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AA8005D524CA2B1E003704C8 /* TalkSpaceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA8005E524CA2B1E003704C8 /* Build configuration list for PBXNativeTarget "TalkSpaceUITests" */;
+			buildPhases = (
+				AA8005D224CA2B1E003704C8 /* Sources */,
+				AA8005D324CA2B1E003704C8 /* Frameworks */,
+				AA8005D424CA2B1E003704C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA8005D824CA2B1E003704C8 /* PBXTargetDependency */,
+			);
+			name = TalkSpaceUITests;
+			productName = TalkSpaceUITests;
+			productReference = AA8005D624CA2B1E003704C8 /* TalkSpaceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA8005AD24CA2B1B003704C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "Four Rooms";
+				TargetAttributes = {
+					AA8005B424CA2B1B003704C8 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					AA8005CA24CA2B1E003704C8 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = AA8005B424CA2B1B003704C8;
+					};
+					AA8005D524CA2B1E003704C8 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = AA8005B424CA2B1B003704C8;
+					};
+				};
+			};
+			buildConfigurationList = AA8005B024CA2B1B003704C8 /* Build configuration list for PBXProject "TalkSpace" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA8005AC24CA2B1B003704C8;
+			productRefGroup = AA8005B624CA2B1B003704C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA8005B424CA2B1B003704C8 /* TalkSpace */,
+				AA8005CA24CA2B1E003704C8 /* TalkSpaceTests */,
+				AA8005D524CA2B1E003704C8 /* TalkSpaceUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA8005B324CA2B1B003704C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA8005C524CA2B1E003704C8 /* LaunchScreen.storyboard in Resources */,
+				AA2162E524CCB1E0000329BC /* DrawingViewController.xib in Resources */,
+				AA2162ED24CCB32B000329BC /* MainViewController.xib in Resources */,
+				AA8005C224CA2B1E003704C8 /* Assets.xcassets in Resources */,
+				AA21630524CDC9B2000329BC /* NoDrawingViewController.xib in Resources */,
+				AA21630F24CF448A000329BC /* DrawingListViewController.xib in Resources */,
+				AA2162E924CCB25D000329BC /* SettingsViewController.xib in Resources */,
+				AA2162F624CCBEBD000329BC /* DrawingCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA8005C924CA2B1E003704C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA8005D424CA2B1E003704C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA8005B124CA2B1B003704C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA2162EC24CCB32B000329BC /* MainViewController.swift in Sources */,
+				AA21630E24CF448A000329BC /* DrawingListViewController.swift in Sources */,
+				AA8005B924CA2B1B003704C8 /* AppDelegate.swift in Sources */,
+				AA21630724CDF12D000329BC /* DrawPadView.swift in Sources */,
+				AA5F476724CCB123008A78E4 /* DrawingManager.swift in Sources */,
+				AA2162F524CCBEBD000329BC /* DrawingCell.swift in Sources */,
+				AA2162F924CCCCA7000329BC /* DrawingCellViewModel.swift in Sources */,
+				AA21630124CCF33F000329BC /* DateExtensions.swift in Sources */,
+				AA21630424CDC9B2000329BC /* NoDrawingViewController.swift in Sources */,
+				AA2162FB24CCCCC3000329BC /* DrawingViewModel.swift in Sources */,
+				AA8005BB24CA2B1B003704C8 /* SceneDelegate.swift in Sources */,
+				AA21630924CE38EF000329BC /* ColorExtensions.swift in Sources */,
+				AA2162FE24CCF28B000329BC /* Model.swift in Sources */,
+				AA2162E424CCB1E0000329BC /* DrawingViewController.swift in Sources */,
+				AA21630B24CF3A7F000329BC /* UserDefaultsExtensions.swift in Sources */,
+				AA2162E824CCB25D000329BC /* SettingsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA8005C724CA2B1E003704C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA8005D024CA2B1E003704C8 /* TalkSpaceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA8005D224CA2B1E003704C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA8005DB24CA2B1E003704C8 /* TalkSpaceUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA8005CD24CA2B1E003704C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA8005B424CA2B1B003704C8 /* TalkSpace */;
+			targetProxy = AA8005CC24CA2B1E003704C8 /* PBXContainerItemProxy */;
+		};
+		AA8005D824CA2B1E003704C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA8005B424CA2B1B003704C8 /* TalkSpace */;
+			targetProxy = AA8005D724CA2B1E003704C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AA8005C324CA2B1E003704C8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA8005C424CA2B1E003704C8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AA8005DD24CA2B1E003704C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA8005DE24CA2B1E003704C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA8005E024CA2B1E003704C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D7EC6PPN45;
+				INFOPLIST_FILE = TalkSpace/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fourrooms.TalkSpace;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA8005E124CA2B1E003704C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D7EC6PPN45;
+				INFOPLIST_FILE = TalkSpace/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fourrooms.TalkSpace;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AA8005E324CA2B1E003704C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D7EC6PPN45;
+				INFOPLIST_FILE = TalkSpaceTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fourrooms.TalkSpaceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TalkSpace.app/TalkSpace";
+			};
+			name = Debug;
+		};
+		AA8005E424CA2B1E003704C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D7EC6PPN45;
+				INFOPLIST_FILE = TalkSpaceTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fourrooms.TalkSpaceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TalkSpace.app/TalkSpace";
+			};
+			name = Release;
+		};
+		AA8005E624CA2B1E003704C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D7EC6PPN45;
+				INFOPLIST_FILE = TalkSpaceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fourrooms.TalkSpaceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TalkSpace;
+			};
+			name = Debug;
+		};
+		AA8005E724CA2B1E003704C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D7EC6PPN45;
+				INFOPLIST_FILE = TalkSpaceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fourrooms.TalkSpaceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TalkSpace;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA8005B024CA2B1B003704C8 /* Build configuration list for PBXProject "TalkSpace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA8005DD24CA2B1E003704C8 /* Debug */,
+				AA8005DE24CA2B1E003704C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA8005DF24CA2B1E003704C8 /* Build configuration list for PBXNativeTarget "TalkSpace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA8005E024CA2B1E003704C8 /* Debug */,
+				AA8005E124CA2B1E003704C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA8005E224CA2B1E003704C8 /* Build configuration list for PBXNativeTarget "TalkSpaceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA8005E324CA2B1E003704C8 /* Debug */,
+				AA8005E424CA2B1E003704C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA8005E524CA2B1E003704C8 /* Build configuration list for PBXNativeTarget "TalkSpaceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA8005E624CA2B1E003704C8 /* Debug */,
+				AA8005E724CA2B1E003704C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA8005AD24CA2B1B003704C8 /* Project object */;
+}
