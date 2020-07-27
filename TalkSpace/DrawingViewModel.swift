@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class DrawingViewModel {
     
@@ -27,13 +28,12 @@ class DrawingViewModel {
     }
     
     // Only save drawing if the drawing has begun (i.e. a start time was set)
-    func saveDrawing() {
-        if let drawing = drawing, let _ = drawing.startTime {
+    func saveDrawing(image: UIImage?) {
+        if let drawing = drawing, let _ = drawing.startTime, let image = image {
             markEndTime()
+            collectImageData(image: image)
             
-            
-            
-            // Save Image to UserDefaults
+            // Save Drawing to UserDefaults
             print("***Saving Drawing to UserDefaults*** ")
             UserDefaults.standard.addToSavedDrawings(drawing: drawing)
             print("Stroke Count is \(drawing.strokes.count)")
@@ -41,17 +41,17 @@ class DrawingViewModel {
     }
     
     func markStartTimeIfNeeded() {
-        if let _ = drawing {
-            // force unwrap because we know it's not nil.
-            if drawing!.startTime == nil {
-                drawing!.startTime = Date()
-            }
+        // force unwrap because we know it's not nil.
+        if drawing!.startTime == nil {
+            drawing!.startTime = Date()
         }
     }
     
     func markEndTime() {
-        if let _ = drawing {
-            drawing!.endTime = Date()
-        }
+        drawing!.endTime = Date()
+    }
+    
+    func collectImageData(image: UIImage) {
+        drawing!.imageData = image.jpegData(compressionQuality: 0.8)
     }
 }

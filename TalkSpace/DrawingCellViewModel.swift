@@ -39,5 +39,13 @@ class DrawingCellViewModel {
         }
         return ""
     }
+    
+    func thumbnailImage() -> UIImage? {
+        guard let drawing = drawing else { return nil }
+        guard let imageData = drawing.imageData else { return nil }
+        
+        let image = UIImage(data: imageData)
+        return image
+    }
 
 }

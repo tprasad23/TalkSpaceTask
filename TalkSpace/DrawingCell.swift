@@ -28,5 +28,6 @@ class DrawingCell: UITableViewCell {
     func configure(viewModel: DrawingCellViewModel) {
         startDateLabel.text = viewModel.startTimeText()
         drawingTimeLabel.text = viewModel.drawingTimeText()
+        thumbImageView.image = viewModel.thumbnailImage()
     }
 }

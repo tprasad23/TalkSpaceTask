@@ -51,7 +51,8 @@ class DrawingViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool)  {
         super.viewWillDisappear(animated)
         guard let viewModel = viewModel else { return }
-        viewModel.saveDrawing()
+        guard let drawPadView = drawPadView else { return }
+        viewModel.saveDrawing(image: drawPadView.tempImageView.image)
     }
     
     // MARK: Button Actions
