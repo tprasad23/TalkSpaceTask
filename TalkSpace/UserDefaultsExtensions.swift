@@ -43,7 +43,10 @@ extension UserDefaults {
         return decodedDrawings
     }
     
-    var hasDrawings: Bool {
-        return fetchSavedDrawings().count > 0
+    func deleteDrawing(index: Int) {
+        if var savedDrawings = UserDefaults.standard.array(forKey: UserDefaults.Keys.savedDrawings) as? [Data] {
+            savedDrawings.remove(at: index)
+            UserDefaults.standard.set(savedDrawings, forKey: UserDefaults.Keys.savedDrawings)
+        }
     }
 }

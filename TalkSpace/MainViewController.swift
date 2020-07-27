@@ -16,6 +16,10 @@ class MainViewController: UIViewController {
         // Add table view controller.
         setupViewDidLoad()
     }
+    
+    func addNewDrawingNavButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewDrawing))
+    }
 
     func setupViewDidLoad() {
         
@@ -23,6 +27,7 @@ class MainViewController: UIViewController {
         
         title = "Drawings"
         edgesForExtendedLayout = []
+        
         
         // If any drawings exist, present them, otherwise
         // present "No Drawings" Screen
@@ -32,6 +37,7 @@ class MainViewController: UIViewController {
         let decodedDrawings = UserDefaults.standard.fetchSavedDrawings()
         print("# of drawings is \(decodedDrawings.count)")
         if decodedDrawings.count > 0 && !testingDrawing {
+            addNewDrawingNavButton()
             let listVC = DrawingListViewController()
             listVC.decodedDrawings = decodedDrawings
             view.addSubview(listVC.view)
@@ -43,5 +49,14 @@ class MainViewController: UIViewController {
             self.addChild(ndVC)
             ndVC.didMove(toParent: self)
         }
+    }
+    
+    @objc func addNewDrawing() {
+        let drawingVC = DrawingViewController()
+        let drawingViewModel = DrawingViewModel()
+        drawingViewModel.drawing = Drawing()
+        
+        drawingVC.viewModel = drawingViewModel
+        self.navigationController?.pushViewController(drawingVC, animated: true)
     }
 }

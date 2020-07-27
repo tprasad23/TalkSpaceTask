@@ -26,7 +26,6 @@
 		AA21630B24CF3A7F000329BC /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA21630A24CF3A7F000329BC /* UserDefaultsExtensions.swift */; };
 		AA21630E24CF448A000329BC /* DrawingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA21630C24CF448A000329BC /* DrawingListViewController.swift */; };
 		AA21630F24CF448A000329BC /* DrawingListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA21630D24CF448A000329BC /* DrawingListViewController.xib */; };
-		AA5F476724CCB123008A78E4 /* DrawingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5F476624CCB123008A78E4 /* DrawingManager.swift */; };
 		AA8005B924CA2B1B003704C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8005B824CA2B1B003704C8 /* AppDelegate.swift */; };
 		AA8005BB24CA2B1B003704C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8005BA24CA2B1B003704C8 /* SceneDelegate.swift */; };
 		AA8005C224CA2B1E003704C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8005C124CA2B1E003704C8 /* Assets.xcassets */; };
@@ -72,7 +71,6 @@
 		AA21630A24CF3A7F000329BC /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 		AA21630C24CF448A000329BC /* DrawingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingListViewController.swift; sourceTree = "<group>"; };
 		AA21630D24CF448A000329BC /* DrawingListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawingListViewController.xib; sourceTree = "<group>"; };
-		AA5F476624CCB123008A78E4 /* DrawingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingManager.swift; sourceTree = "<group>"; };
 		AA8005B524CA2B1B003704C8 /* TalkSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalkSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8005B824CA2B1B003704C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA8005BA24CA2B1B003704C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,14 +164,6 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		AA5F476524CCB10B008A78E4 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				AA5F476624CCB123008A78E4 /* DrawingManager.swift */,
-			);
-			name = Managers;
-			sourceTree = "<group>";
-		};
 		AA8005AC24CA2B1B003704C8 = {
 			isa = PBXGroup;
 			children = (
@@ -207,7 +197,6 @@
 				AA8005C124CA2B1E003704C8 /* Assets.xcassets */,
 				AA8005C324CA2B1E003704C8 /* LaunchScreen.storyboard */,
 				AA8005C624CA2B1E003704C8 /* Info.plist */,
-				AA5F476524CCB10B008A78E4 /* Managers */,
 			);
 			path = TalkSpace;
 			sourceTree = "<group>";
@@ -370,7 +359,6 @@
 				AA21630E24CF448A000329BC /* DrawingListViewController.swift in Sources */,
 				AA8005B924CA2B1B003704C8 /* AppDelegate.swift in Sources */,
 				AA21630724CDF12D000329BC /* DrawPadView.swift in Sources */,
-				AA5F476724CCB123008A78E4 /* DrawingManager.swift in Sources */,
 				AA2162F524CCBEBD000329BC /* DrawingCell.swift in Sources */,
 				AA2162F924CCCCA7000329BC /* DrawingCellViewModel.swift in Sources */,
 				AA21630124CCF33F000329BC /* DateExtensions.swift in Sources */,
