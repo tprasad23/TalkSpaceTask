@@ -71,7 +71,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func addNewDrawing() {
-        let drawingViewModel = DrawingViewModel(drawing: Drawing(), drawingMode: .pencil, presentationMode: .drawing)
+        let drawingViewModel = DrawingViewModel(drawing: Drawing(), drawingMode: .pencil)
         let drawingVC = DrawingViewController()
         
         drawingVC.viewModel = drawingViewModel

@@ -11,7 +11,6 @@ import Foundation
 typealias DrawingTimeTuple = (min: Int, sec: Int)
 
 extension Date {
-    
     func startDateAndTimeString() -> String {
         let dateFormatter = DateFormatter()
         let format = "MMM d h:mm a"

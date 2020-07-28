@@ -16,12 +16,11 @@ class DrawingViewModel {
     
     // State variables
     var drawingMode: DrawingMode? = .pencil
-    var presentationMode: PresentationMode
+   
     
-    init(drawing: Drawing, drawingMode: DrawingMode? = .pencil, presentationMode: PresentationMode) {
+    init(drawing: Drawing, drawingMode: DrawingMode? = .pencil) {
         self.drawing = drawing
         self.drawingMode = drawingMode
-        self.presentationMode = presentationMode
     }
     
     func togglePencilEraser(toPencil: Bool = false, completion: (DrawingMode)->Void) {

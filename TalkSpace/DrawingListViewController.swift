@@ -58,7 +58,7 @@ extension DrawingListViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let decodedDrawing = decodedDrawings[indexPath.row]
-        let drawingViewModel = DrawingViewModel(drawing: decodedDrawing, presentationMode: .playback)
+        let drawingViewModel = DrawingViewModel(drawing: decodedDrawing)
         let drawingVC = DrawingViewController()
         drawingVC.viewModel = drawingViewModel
         drawingVC.presentationMode = .playback
