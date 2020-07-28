@@ -12,36 +12,23 @@ class DrawingListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var decodedDrawings: [Drawing] = []
-    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        self.setupViewDidLoad()
+    }
+    
+    func setupViewDidLoad() {
+        // Table View initializing.
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "DrawingCell", bundle: nil), forCellReuseIdentifier: "DrawingCell")
-        
-        refreshControl.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
-        tableView.refreshControl = refreshControl
     }
-    
-    @objc func addNewDrawing() {
-        let drawingVC = DrawingViewController()
-        let drawingViewModel = DrawingViewModel()
-        drawingViewModel.drawing = Drawing()
-        drawingVC.viewModel = drawingViewModel
         
-        self.navigationController?.pushViewController(drawingVC, animated: true)
-    }
-    
-    @objc func refreshTable() {
-        decodedDrawings = UserDefaults.standard.fetchSavedDrawings()
+    public func refreshTable() {
         tableView.reloadData()
-        refreshControl.endRefreshing()
     }
 }
-
 
 extension DrawingListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,8 +52,18 @@ extension DrawingListViewController: UITableViewDelegate, UITableViewDataSource 
             // animate the row away.
             
             UserDefaults.standard.deleteDrawing(index: indexPath.row)
-            decodedDrawings = UserDefaults.standard.fetchSavedDrawings()
+            decodedDrawings = UserDefaults.standard.fetchSavedDecodedDrawings()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let decodedDrawing = decodedDrawings[indexPath.row]
+        let drawingViewModel = DrawingViewModel(drawing: decodedDrawing, presentationMode: .playback)
+        let drawingVC = DrawingViewController()
+        drawingVC.viewModel = drawingViewModel
+        drawingVC.presentationMode = .playback
+        
+        self.navigationController?.pushViewController(drawingVC, animated: true)
     }
 }

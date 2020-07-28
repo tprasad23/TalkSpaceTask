@@ -28,31 +28,64 @@ class DrawingViewController: UIViewController {
     var drawPadView: DrawPadView?
     
     // Dependency Injected Variables
-    var viewModel: DrawingViewModel?
-    
+    var viewModel: DrawingViewModel? 
+    var presentationMode: PresentationMode = .drawing
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Drawing"
-        toggleUI(viewModel?.drawingMode)
         
+        if presentationMode == .drawing {
+            title = "Drawing"
+            initializeDrawingUI()
+            initializeDrawPad()
+        } else {
+            title = "Playing"
+            initializeDrawPadForPlayBack()
+        }
+    }
+    
+    func initializeDrawingUI() {
+        guard let viewModel = viewModel else { return }
+        toggleUI(viewModel.drawingMode)
+    }
+    
+    func initializeDrawPad() {
+        guard let viewModel = viewModel else { return }
         
         let imageFrame = CGRect(x: 0, y: 0, width: padContainerView.frame.width, height: padContainerView.frame.height)
-        drawPadView = DrawPadView(frame: imageFrame)
-        drawPadView?.markStartTimeIfNeeded = {
-            guard let viewModel = self.viewModel else { return }
-            viewModel.markStartTimeIfNeeded()
+        let markStartTimeIfNeeded: (()->()) = {
+            self.viewModel?.markStartTimeIfNeeded()
         }
         
-        drawPadView?.backgroundColor = .white
-        drawPadView?.drawing = viewModel?.drawing
+        drawPadView = DrawPadView(frame: imageFrame,
+                                  drawing: viewModel.drawing,
+                                  presentationMode: presentationMode,
+                                  markStartTimeIfNeeded: markStartTimeIfNeeded)
+            
         padContainerView.addSubview(drawPadView!)
+    }
+    
+    func initializeDrawPadForPlayBack() {
+        guard let viewModel = viewModel else { return }
+        let imageFrame = CGRect(x: 0, y: 0, width: padContainerView.frame.width, height: padContainerView.frame.height)
+        
+        drawPadView = DrawPadView(frame: imageFrame,
+                                         drawing: viewModel.drawing,
+                                         presentationMode: presentationMode,
+                                         markStartTimeIfNeeded: nil)
+        
+        padContainerView.addSubview(drawPadView!)
+        drawPadView!.playImage()
     }
     
     override func viewWillDisappear(_ animated: Bool)  {
         super.viewWillDisappear(animated)
-        guard let viewModel = viewModel else { return }
-        guard let drawPadView = drawPadView else { return }
-        viewModel.saveDrawing(image: drawPadView.tempImageView.image)
+        
+        if presentationMode == .drawing {
+            guard let viewModel = viewModel else { return }
+            guard let drawPadView = drawPadView else { return }
+            viewModel.saveDrawing(image: drawPadView.tempImageView.image)
+        }
     }
     
     // MARK: Button Actions

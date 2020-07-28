@@ -12,20 +12,26 @@ import UIKit
 class DrawPadView: UIView {
     
     // Injected variables
-    var drawing: Drawing?
+    
+    var drawing: Drawing
     var strokeColor: UIColor? = .black
     var lineWidth: CGFloat? = 5
     var markStartTimeIfNeeded: (()->())?
+    var presentationMode: PresentationMode
     
     // Internal State Variables
     
     var lastPointTouched: CGPoint = CGPoint(x: 0, y: 0)
     var tempImageView: UIImageView
     
-    override init(frame: CGRect) {
-        let imageFrame = CGRect(origin: .zero, size: frame.size)
-        self.tempImageView = UIImageView(frame: imageFrame)
+    init(frame: CGRect, drawing: Drawing, presentationMode: PresentationMode,  markStartTimeIfNeeded: (()->())?) {
+        self.tempImageView = UIImageView(frame: frame)
+        self.drawing = drawing
+        self.presentationMode = presentationMode
+        self.markStartTimeIfNeeded = markStartTimeIfNeeded
+        
         super.init(frame: frame)
+        self.backgroundColor = .white
         self.addSubview(tempImageView)
     }
     
@@ -33,58 +39,96 @@ class DrawPadView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    // MARK: Touch methods (for drawing mode)
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if presentationMode == .drawing {
+            createNewStroke(touches)
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if presentationMode == .drawing {
+            guard let currentPoint = touches.first?.location(in: self) else { return }
+            drawLineToPoint(currentPoint: currentPoint)
+            storeLastPointToLastStroke()
+        }
+    }
+    
+    // MARK: Playing Mode methods
+    func playImage() {
+        if presentationMode == .playback, drawing.strokes.count > 0 {
+            for stroke in drawing.strokes {
+                lastPointTouched = stroke.points[0]
+                strokeColor = stroke.colorData.colorRepresentation()
+                lineWidth = stroke.width
+                
+                for (i, point) in stroke.points.enumerated() {
+                    if i > 0 {
+                        self.drawLineToPoint(currentPoint: point)
+                    }
+                }
+            }
+        }
+    }
+    
+    // Drawing Methods
+    
+    func drawLineToPoint(currentPoint: CGPoint) {
+        guard let strokeColor = strokeColor else { return }
+        guard let lineWidth = lineWidth else { return }
+       
+        let imageFrame = CGRect(origin: .zero, size: self.frame.size)
+       
+        // Draw out the line
+        UIGraphicsBeginImageContext(imageFrame.size)
+        let context = UIGraphicsGetCurrentContext()
+       
+        context?.setLineCap(.round)
+        context?.setStrokeColor(strokeColor.cgColor)
+        context?.setLineWidth(lineWidth)
+       
+        tempImageView.image?.draw(in: imageFrame)
+        context?.move(to: lastPointTouched)
+        context?.addLine(to: currentPoint)
+        context?.setBlendMode(.normal)
+        context?.strokePath()
+       
+        if let cgImage = context?.makeImage() {
+            self.tempImageView.image = UIImage(cgImage: cgImage)
+        }
+       
+        lastPointTouched = currentPoint
+    }
+    
+    // MARK: Stroke Capturing Methods
+    func createNewStroke(_ touches: Set<UITouch>) {
         guard let lastPointTouched = touches.first?.location(in: self) else { return }
         guard let strokeColor = strokeColor else { return }
         guard let lineWidth = lineWidth else { return }
-        self.lastPointTouched = lastPointTouched
         
         // Generate new stroke variable
         
+        self.lastPointTouched = lastPointTouched
         if let colorData = strokeColor.dataRepresentation() {
             let stroke = Stroke(points: [CGPoint](), colorData: colorData, width: lineWidth)
             stroke.points.append(lastPointTouched)
-            drawing?.strokes.append(stroke)
+            drawing.strokes.append(stroke)
             markStartTimeIfNeeded?()
         } else {
             print("Error getting data representation for stroke color")
         }
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let currentPoint = touches.first?.location(in: self) else { return }
-        guard let strokeColor = strokeColor else { return }
-        guard let lineWidth = lineWidth else { return }
-        
-        let imageFrame = CGRect(origin: .zero, size: self.frame.size)
-        
-        // Draw out the line
-        UIGraphicsBeginImageContext(imageFrame.size)
-        let context = UIGraphicsGetCurrentContext()
-        
-        context?.setLineCap(.round)
-        context?.setStrokeColor(strokeColor.cgColor)
-        context?.setLineWidth(lineWidth)
-        
-        tempImageView.image?.draw(in: imageFrame)
-        context?.move(to: lastPointTouched)
-        context?.addLine(to: currentPoint)
-        context?.setBlendMode(.normal)
-        context?.strokePath()
-        
-        if let cgImage = context?.makeImage() {
-            tempImageView.image = UIImage(cgImage: cgImage)
+    // This function assumes at least one stroke variable exists
+    // Save the point in the "lastPountTouched" variable to the
+    // last stroke in the array.
+    func storeLastPointToLastStroke() {
+        if let lastStroke = drawing.strokes.popLast() {
+            lastStroke.points.append(lastPointTouched)
+            drawing.strokes.append(lastStroke)
+        } else {
+            print("Need at least one stroke variable created")
         }
-        
-        lastPointTouched = currentPoint
-        
-        guard let lastStroke = drawing?.strokes.popLast() else { return }
-        lastStroke.points.append(lastPointTouched)
-        drawing?.strokes.append(lastStroke)
     }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-       
-    }
-
 }

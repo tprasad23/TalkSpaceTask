@@ -10,6 +10,9 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    var listVC: DrawingListViewController?
+    var ndVC: NoDrawingViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,44 +20,58 @@ class MainViewController: UIViewController {
         setupViewDidLoad()
     }
     
-    func addNewDrawingNavButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewDrawing))
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupViewWillAppear()
     }
-
+    
     func setupViewDidLoad() {
-        
         // Setup Nav Bar
-        
         title = "Drawings"
         edgesForExtendedLayout = []
+    }
+    
+    func setupViewWillAppear() {
+        let decodedDrawings = UserDefaults.standard.fetchSavedDecodedDrawings()
         
-        
-        // If any drawings exist, present them, otherwise
-        // present "No Drawings" Screen
-        
-        let testingDrawing = false
-        
-        let decodedDrawings = UserDefaults.standard.fetchSavedDrawings()
-        print("# of drawings is \(decodedDrawings.count)")
-        if decodedDrawings.count > 0 && !testingDrawing {
-            addNewDrawingNavButton()
-            let listVC = DrawingListViewController()
-            listVC.decodedDrawings = decodedDrawings
-            view.addSubview(listVC.view)
-            self.addChild(listVC)
-            listVC.didMove(toParent: self)
+        if decodedDrawings.count > 0 {
+            // Need this check for the first drawing added, a "no drawing"
+            // view controller exists, we must remove it.
+            if let ndVC = ndVC {
+                ndVC.willMove(toParent: nil)
+                ndVC.view.removeFromSuperview()
+                ndVC.removeFromParent()
+            }
+            
+            if let listVC = listVC {
+                // list is already present, simply update
+                // the drawing list and refresh the table.
+                listVC.decodedDrawings = decodedDrawings
+                listVC.refreshTable()
+            } else {
+                addNewDrawingNavButton()
+                listVC = DrawingListViewController()
+                listVC?.decodedDrawings = decodedDrawings
+                view.addSubview(listVC!.view)
+                self.addChild(listVC!)
+                listVC?.didMove(toParent: self)
+            }
         } else {
-            let ndVC = NoDrawingViewController()
-            view.addSubview(ndVC.view)
-            self.addChild(ndVC)
-            ndVC.didMove(toParent: self)
+            ndVC = NoDrawingViewController()
+            view.addSubview(ndVC!.view)
+            self.addChild(ndVC!)
+            ndVC?.didMove(toParent: self)
+
         }
     }
     
+    func addNewDrawingNavButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewDrawing))
+    }
+    
     @objc func addNewDrawing() {
+        let drawingViewModel = DrawingViewModel(drawing: Drawing(), drawingMode: .pencil, presentationMode: .drawing)
         let drawingVC = DrawingViewController()
-        let drawingViewModel = DrawingViewModel()
-        drawingViewModel.drawing = Drawing()
         
         drawingVC.viewModel = drawingViewModel
         self.navigationController?.pushViewController(drawingVC, animated: true)

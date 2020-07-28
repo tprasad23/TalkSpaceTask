@@ -12,11 +12,17 @@ import UIKit
 class DrawingViewModel {
     
     // Model Object
-    var drawing: Drawing?
+    var drawing: Drawing
     
     // State variables
     var drawingMode: DrawingMode? = .pencil
-    var presentationMode: PresentationMode?
+    var presentationMode: PresentationMode
+    
+    init(drawing: Drawing, drawingMode: DrawingMode? = .pencil, presentationMode: PresentationMode) {
+        self.drawing = drawing
+        self.drawingMode = drawingMode
+        self.presentationMode = presentationMode
+    }
     
     func togglePencilEraser(toPencil: Bool = false, completion: (DrawingMode)->Void) {
         if toPencil || drawingMode == .eraser {
@@ -29,7 +35,7 @@ class DrawingViewModel {
     
     // Only save drawing if the drawing has begun (i.e. a start time was set)
     func saveDrawing(image: UIImage?) {
-        if let drawing = drawing, let _ = drawing.startTime, let image = image {
+        if let _ = drawing.startTime, let image = image {
             markEndTime()
             collectImageData(image: image)
             
@@ -41,17 +47,16 @@ class DrawingViewModel {
     }
     
     func markStartTimeIfNeeded() {
-        // force unwrap because we know it's not nil.
-        if drawing!.startTime == nil {
-            drawing!.startTime = Date()
+        if drawing.startTime == nil {
+            drawing.startTime = Date()
         }
     }
     
     func markEndTime() {
-        drawing!.endTime = Date()
+        drawing.endTime = Date()
     }
     
     func collectImageData(image: UIImage) {
-        drawing!.imageData = image.jpegData(compressionQuality: 0.8)
+        drawing.imageData = image.jpegData(compressionQuality: 0.8)
     }
 }

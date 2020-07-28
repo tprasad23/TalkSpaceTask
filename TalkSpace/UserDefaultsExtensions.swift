@@ -30,7 +30,7 @@ extension UserDefaults {
         }
     }
     
-    func fetchSavedDrawings() -> [Drawing] {
+    func fetchSavedDecodedDrawings() -> [Drawing] {
         var decodedDrawings = [Drawing]()
         
         if let savedDrawings = UserDefaults.standard.array(forKey: UserDefaults.Keys.savedDrawings) as? [Data] {

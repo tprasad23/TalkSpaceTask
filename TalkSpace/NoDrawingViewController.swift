@@ -22,9 +22,8 @@ class NoDrawingViewController: UIViewController {
     }
 
     @IBAction func noDrawingsButtonAction(_ sender: Any) {
+        let drawingViewModel = DrawingViewModel(drawing: Drawing(), drawingMode: .pencil, presentationMode: .drawing)
         let drawingVC = DrawingViewController()
-        let drawingViewModel = DrawingViewModel()
-        drawingViewModel.drawing = Drawing()
         
         drawingVC.viewModel = drawingViewModel
         self.navigationController?.pushViewController(drawingVC, animated: true)
