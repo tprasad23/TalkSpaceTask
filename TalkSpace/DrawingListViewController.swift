@@ -10,7 +10,7 @@ import UIKit
 
 class DrawingListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     var decodedDrawings: [Drawing] = []
     
     override func viewDidLoad() {
@@ -22,7 +22,7 @@ class DrawingListViewController: UIViewController {
         // Table View initializing.
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "DrawingCell", bundle: nil), forCellReuseIdentifier: "DrawingCell")
+        tableView.register(UINib(nibName: "DrawingCell", bundle: nil), forCellReuseIdentifier: "DrawingCell")        
     }
         
     public func refreshTable() {
@@ -38,8 +38,7 @@ extension DrawingListViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DrawingCell", for: indexPath) as? DrawingCell else { fatalError("Could not dequeue cell") }
         let decodedDrawing = decodedDrawings[indexPath.row]
-        let drawingCellViewModel = DrawingCellViewModel()
-        drawingCellViewModel.drawing = decodedDrawing
+        let drawingCellViewModel = DrawingCellViewModel(drawing: decodedDrawing)
         cell.configure(viewModel: drawingCellViewModel)
         return cell
     }

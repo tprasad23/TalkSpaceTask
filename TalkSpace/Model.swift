@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 class Stroke: Codable {
     var points: [CGPoint]
     let colorData: Data

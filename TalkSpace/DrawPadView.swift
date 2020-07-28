@@ -14,8 +14,8 @@ class DrawPadView: UIView {
     // Injected variables
     
     var drawing: Drawing
-    var strokeColor: UIColor? = .black
-    var lineWidth: CGFloat? = 5
+    var strokeColor: UIColor = .black
+    var lineWidth: CGFloat = 5
     var markStartTimeIfNeeded: (()->())?
     var presentationMode: PresentationMode
     
@@ -60,7 +60,7 @@ class DrawPadView: UIView {
         if presentationMode == .playback, drawing.strokes.count > 0 {
             for stroke in drawing.strokes {
                 lastPointTouched = stroke.points[0]
-                strokeColor = stroke.colorData.colorRepresentation()
+                strokeColor = stroke.colorData.colorRepresentation() ?? .black
                 lineWidth = stroke.width
                 
                 for (i, point) in stroke.points.enumerated() {
@@ -75,9 +75,6 @@ class DrawPadView: UIView {
     // Drawing Methods
     
     func drawLineToPoint(currentPoint: CGPoint) {
-        guard let strokeColor = strokeColor else { return }
-        guard let lineWidth = lineWidth else { return }
-       
         let imageFrame = CGRect(origin: .zero, size: self.frame.size)
        
         // Draw out the line
@@ -104,8 +101,6 @@ class DrawPadView: UIView {
     // MARK: Stroke Capturing Methods
     func createNewStroke(_ touches: Set<UITouch>) {
         guard let lastPointTouched = touches.first?.location(in: self) else { return }
-        guard let strokeColor = strokeColor else { return }
-        guard let lineWidth = lineWidth else { return }
         
         // Generate new stroke variable
         

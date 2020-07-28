@@ -12,6 +12,7 @@
                 <outlet property="eraserButton" destination="WOA-bz-EtQ" id="LdV-Xn-dDc"/>
                 <outlet property="padContainerView" destination="Ktm-gv-hPT" id="sXL-xc-hXK"/>
                 <outlet property="pencilButton" destination="WUJ-Oa-xYe" id="rlL-yI-EuZ"/>
+                <outlet property="settingsButton" destination="sAz-Q9-Vtz" id="zwY-GM-dpA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -49,7 +50,7 @@
                         <constraint firstAttribute="height" constant="1" id="e9L-d4-ulN"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAz-Q9-Vtz">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAz-Q9-Vtz" userLabel="Settings Button">
                     <rect key="frame" x="349" y="59" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="7b2-Ni-pTf"/>

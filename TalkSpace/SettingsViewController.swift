@@ -16,10 +16,11 @@ class SettingsViewController: UIViewController {
     
     let colorArray: [UIColor] = [.black, .cyan, .green, .blue, .purple]
     
-    var lineWidth: Int?
     var colorChosen: ((UIColor)->())?
     var lineWidthChosen: ((Int)->())?
     
+    var initialColor: UIColor?
+    var lineWidth: CGFloat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,11 +46,22 @@ class SettingsViewController: UIViewController {
                 button.backgroundColor = colorArray[button.tag]
             }
         }
+        
+        if let initialColor = initialColor {
+            if let tag = colorArray.firstIndex(of: initialColor) {
+                updateButtonUI(tag: tag)
+            }
+        }
     }
     
     func initializeSliderUI() {
         slider.minimumValue = 1.0
         slider.maximumValue = 10.0
+        
+        if let lineWidth = lineWidth {
+            slider.value = Float(lineWidth)
+            updateSliderUI(widthVal: Int(lineWidth))
+        }
     }
     
     func updateButtonUI(tag: Int) {
@@ -67,9 +79,13 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    func updateSliderUI(widthVal: Int) {
+        lineWidthLabel.text = "Line Width: \(widthVal)"
+    }
+    
     @IBAction func sliderMoved(_ sender: Any) {
         let widthValue: Int = Int(slider.value)
-        lineWidthLabel.text = "Line Width: \(widthValue)"
+        updateSliderUI(widthVal: widthValue)
         lineWidthChosen?(widthValue)
     }
 }

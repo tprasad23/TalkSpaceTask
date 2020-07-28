@@ -52,6 +52,7 @@ class MainViewController: UIViewController {
                 addNewDrawingNavButton()
                 listVC = DrawingListViewController()
                 listVC?.decodedDrawings = decodedDrawings
+               
                 view.addSubview(listVC!.view)
                 self.addChild(listVC!)
                 listVC?.didMove(toParent: self)

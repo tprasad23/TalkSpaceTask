@@ -24,6 +24,9 @@ class DrawingViewController: UIViewController {
     
     @IBOutlet weak var pencilButton: UIButton!
     @IBOutlet weak var eraserButton: UIButton!
+    
+    @IBOutlet weak var settingsButton: UIButton!
+    
     @IBOutlet weak var padContainerView: UIView!
     var drawPadView: DrawPadView?
     
@@ -40,6 +43,7 @@ class DrawingViewController: UIViewController {
             initializeDrawPad()
         } else {
             title = "Playing"
+            hideDrawingElements()
             initializeDrawPadForPlayBack()
         }
     }
@@ -63,6 +67,12 @@ class DrawingViewController: UIViewController {
                                   markStartTimeIfNeeded: markStartTimeIfNeeded)
             
         padContainerView.addSubview(drawPadView!)
+    }
+    
+    func hideDrawingElements() {
+        self.pencilButton.isHidden = true
+        self.eraserButton.isHidden = true
+        self.settingsButton.isHidden = true
     }
     
     func initializeDrawPadForPlayBack() {
@@ -99,6 +109,9 @@ class DrawingViewController: UIViewController {
     
     @IBAction func settingsButtonAction(_ sender: Any) {
         let settingsVC = SettingsViewController()
+        settingsVC.initialColor = self.drawPadView?.strokeColor ?? .black
+        settingsVC.lineWidth = self.drawPadView?.lineWidth ?? 5.0
+        
         settingsVC.colorChosen = { color in
             self.drawPadView?.strokeColor = color
         }

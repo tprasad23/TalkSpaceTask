@@ -42,7 +42,6 @@ class DrawingViewModel {
             // Save Drawing to UserDefaults
             print("***Saving Drawing to UserDefaults*** ")
             UserDefaults.standard.addToSavedDrawings(drawing: drawing)
-            print("Stroke Count is \(drawing.strokes.count)")
         }
     }
     

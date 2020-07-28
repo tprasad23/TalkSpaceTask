@@ -11,16 +11,18 @@ import UIKit
 
 class DrawingCellViewModel {
     
-    var drawing: Drawing?
+    var drawing: Drawing
+    
+    init(drawing: Drawing) {
+        self.drawing = drawing
+    }
     
     func startTimeText() -> String {
-        guard let drawing = drawing else { return "" }
         guard let startTime = drawing.startTime else { return "" }
         return startTime.startDateAndTimeString()
     }
     
     func drawingTimeText() -> String {
-        guard let drawing = drawing else { return "" }
         guard let startTime = drawing.startTime else { return "" }
         guard let endTime = drawing.endTime else { return "" }
         
@@ -41,7 +43,6 @@ class DrawingCellViewModel {
     }
     
     func thumbnailImage() -> UIImage? {
-        guard let drawing = drawing else { return nil }
         guard let imageData = drawing.imageData else { return nil }
         
         let image = UIImage(data: imageData)
