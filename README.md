@@ -14,3 +14,5 @@ Further developments
 - Animate Playback (using bezier curves) 
 - Add more shape types for brush stroke
 - Allow Editing in Playback mode (after image has been played fully)
+- Use Diffable Data Source to manage the UITableView (iOS 13 introduction)
+
