@@ -14,8 +14,9 @@ class DrawPadView: UIView {
     // Injected variables
     
     var drawing: Drawing
-    var strokeColor: UIColor = .black
-    var lineWidth: CGFloat = 5
+    var strokeColor: UIColor = Config.Defaults.strokeColor
+    var storedColor: UIColor? = nil
+    var lineWidth: CGFloat = Config.Defaults.lineWidth
     var markStartTimeIfNeeded: (()->())?
     var presentationMode: PresentationMode
     
@@ -39,6 +40,14 @@ class DrawPadView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK Public Methods
+    func storeColor() {
+        storedColor = strokeColor
+    }
+    
+    func clearStoredColor() {
+        storedColor = nil
+    }
     
     // MARK: Touch methods (for drawing mode)
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -24,7 +24,6 @@ class DrawingViewController: UIViewController {
     
     @IBOutlet weak var pencilButton: UIButton!
     @IBOutlet weak var eraserButton: UIButton!
-    
     @IBOutlet weak var settingsButton: UIButton!
     
     @IBOutlet weak var padContainerView: UIView!
@@ -109,8 +108,8 @@ class DrawingViewController: UIViewController {
     
     @IBAction func settingsButtonAction(_ sender: Any) {
         let settingsVC = SettingsViewController()
-        settingsVC.initialColor = self.drawPadView?.strokeColor ?? .black
-        settingsVC.initialLineWidth = self.drawPadView?.lineWidth ?? 5.0
+        settingsVC.initialColor = self.drawPadView?.strokeColor ?? Config.Defaults.strokeColor
+        settingsVC.initialLineWidth = self.drawPadView?.lineWidth ?? Config.Defaults.lineWidth
         
         settingsVC.colorChosen = { color in
             self.drawPadView?.strokeColor = color
@@ -132,15 +131,18 @@ class DrawingViewController: UIViewController {
     
     func toggleUI(_ drawingMode: DrawingMode?) {
         // Default to showing pencil if no mode set.
+        // Set the color to any stored color (that was previously set, if we were in eraser mode) , otherwise revert to default color.
+        
         let drawingMode = drawingMode ?? .pencil
         if drawingMode == .pencil {
-            drawPadView?.strokeColor = .black
+            drawPadView?.strokeColor = drawPadView?.storedColor ?? Config.Defaults.strokeColor
             pencilButton.layer.borderColor = UIColor.red.cgColor
             pencilButton.layer.borderWidth = 1.0
             
             eraserButton.layer.borderColor = UIColor.clear.cgColor
             eraserButton.layer.borderWidth = 0.0
         } else {
+            drawPadView?.storeColor()
             drawPadView?.strokeColor = .white
             eraserButton.layer.borderColor = UIColor.red.cgColor
             eraserButton.layer.borderWidth = 1.0
