@@ -6,6 +6,7 @@ Architecture and Programming Choices:
 - Drawings are stored with custom codable classes, using JSON Encoding/Decoding
 - I kept "presentation mode" connected to the ViewController/DrawPadView only (not managed by the view model), as it was a pure UI property, and once decided , wouldn't change for the particular session (i.e. the Draw Pad View could either only be in one or the other)
 - Playback happens instantly, With further time I would investigate how to introduce delay, or Core Animation to animate the drawing of the stored paths.
+- Eraser selection would inherit any existing line width selection previously made.
 - Assumed that all drawings would be under 60 minutes, provided time in mins and seconds
 
 Further developments
