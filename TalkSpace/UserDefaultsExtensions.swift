@@ -33,14 +33,19 @@ extension UserDefaults {
     func fetchSavedDecodedDrawings() -> [Drawing] {
         var decodedDrawings = [Drawing]()
         
-        if let savedDrawings = UserDefaults.standard.array(forKey: UserDefaults.Keys.savedDrawings) as? [Data] {
-            for savedDrawing in savedDrawings {
-                let decodedDrawing = try! JSONDecoder().decode(Drawing.self, from: savedDrawing)
-                decodedDrawings.append(decodedDrawing)
+        do {
+            if let savedDrawings = UserDefaults.standard.array(forKey: UserDefaults.Keys.savedDrawings) as? [Data] {
+                for savedDrawing in savedDrawings {
+                    let decodedDrawing = try JSONDecoder().decode(Drawing.self, from: savedDrawing)
+                    decodedDrawings.append(decodedDrawing)
+                }
+                return decodedDrawings
             }
+        } catch let error {
+            print("decoding error is \(error.localizedDescription)")
         }
-        
-        return decodedDrawings
+
+        return []
     }
     
     func deleteDrawing(index: Int) {
