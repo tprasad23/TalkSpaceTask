@@ -110,7 +110,7 @@ class DrawingViewController: UIViewController {
     @IBAction func settingsButtonAction(_ sender: Any) {
         let settingsVC = SettingsViewController()
         settingsVC.initialColor = self.drawPadView?.strokeColor ?? .black
-        settingsVC.lineWidth = self.drawPadView?.lineWidth ?? 5.0
+        settingsVC.initialLineWidth = self.drawPadView?.lineWidth ?? 5.0
         
         settingsVC.colorChosen = { color in
             self.drawPadView?.strokeColor = color

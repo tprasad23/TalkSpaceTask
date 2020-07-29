@@ -20,7 +20,7 @@ class SettingsViewController: UIViewController {
     var lineWidthChosen: ((Int)->())?
     
     var initialColor: UIColor?
-    var lineWidth: CGFloat?
+    var initialLineWidth: CGFloat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +58,7 @@ class SettingsViewController: UIViewController {
         slider.minimumValue = 1.0
         slider.maximumValue = 10.0
         
-        if let lineWidth = lineWidth {
+        if let lineWidth = initialLineWidth {
             slider.value = Float(lineWidth)
             updateSliderUI(widthVal: Int(lineWidth))
         }
